@@ -133,4 +133,4 @@ export const MTCaptcha: React.FC<MTCaptchaProps> = ({
   );
 };
 
-export default NativeModules.Mtcaptcha;
+export default NativeModules.MtcaptchaModule;
