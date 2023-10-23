@@ -1,7 +1,7 @@
 {
   "name": "react-native-mtcaptcha",
-  "version": "0.5.0",
-  "description": "MTCaptcha library for React Native library",
+  "version": "0.6.0",
+  "description": "MTCaptcha library for React Native app",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
