@@ -14,7 +14,6 @@ interface MTCaptchaProps {
   action?: string;
   customLangText?: JSON;
   customStyle?: JSON;
-  enableTestMode?: string;
   onCaptchaVerified?: (msg: JSON) => void;
   onCaptchaExpired?: (msg: JSON) => void;
   onError?: (msg: JSON) => void;
@@ -29,7 +28,6 @@ export const MTCaptcha: React.FC<MTCaptchaProps> = ({
   action,
   customLangText,
   customStyle,
-  enableTestMode,
   onCaptchaVerified,
   onCaptchaExpired,
   onError,
@@ -95,7 +93,6 @@ export const MTCaptcha: React.FC<MTCaptchaProps> = ({
               "customStyle": ${customStyleProps},
               "theme": "${theme}",
               "action": "${action}",
-              // "enableTestMode": "${enableTestMode}",
               "verified-callback": "mt_verifiedcb",
               "verifyexpired-callback": "mt_verifyexpiredcb",
               "error-callback": "mt_errorcb",
