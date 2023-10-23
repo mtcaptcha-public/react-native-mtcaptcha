@@ -10,6 +10,7 @@ interface MTCaptchaProps {
     action?: string;
     customLangText?: JSON;
     customStyle?: JSON;
+    enableTestMode?: string;
     onCaptchaVerified?: (msg: JSON) => void;
     onCaptchaExpired?: (msg: JSON) => void;
     onError?: (msg: JSON) => void;
