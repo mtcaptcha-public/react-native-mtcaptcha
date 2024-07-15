@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { WebView } from 'react-native-webview';
 import type { WebViewMessageEvent } from 'react-native-webview';
-import { NativeModules } from "react-native";
+import { NativeModules, Linking, Platform } from "react-native";
 import type { ViewStyle } from 'react-native';
 
 interface MTCaptchaProps {
@@ -129,6 +129,18 @@ export const MTCaptcha: React.FC<MTCaptchaProps> = ({
       onMessage={onMessage} // Handle messages from the WebView
       scrollEnabled={false} // Disable scrolling
       setBuiltInZoomControls={false} //Disable zoom
+      onShouldStartLoadWithRequest={event => {
+        const isExternalLink = Platform.OS === 'ios' ? event.navigationType === 'click' : true;
+        if (event.url.slice(0, 4) === 'http' && isExternalLink) {
+          Linking.canOpenURL(event.url).then(supported => {
+            if (supported) {
+              Linking.openURL(event.url);
+            }
+          });
+          return false;
+        }
+        return true;
+      }}
     />
   );
 };
